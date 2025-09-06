@@ -12,8 +12,8 @@ void reverseArray(vector<int>& arr, int size){
 }
 
 int main(){
-    vector<int> arr={4, 2, 7, 8, 1, 2, 5};
-    int size = 7;
+    vector<int> arr={4, 2, 7, 8, 1, 2};
+    int size = 6;
 
     reverseArray(arr, size);
 
