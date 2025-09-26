@@ -40,13 +40,36 @@ vector<int> rearrangeArray(vector<int>& nums, int n) {
         return ans;
 }
 
+//Optimized Approach 
+vector<int> rearrangeArrayOptimized(vector<int>& nums, int n) {
+        
+        int evenIdx = 0, oddIdx = 1;
+
+        vector<int> ans(n);
+        
+        for(int i=0; i<n; i++){
+            if(nums[i]>0){
+                ans[evenIdx] = nums[i];
+                evenIdx += 2;
+            }
+
+            if(nums[i]<0){
+                ans[oddIdx] = nums[i];
+                oddIdx += 2;
+            }
+        }
+
+        return ans;
+}
+
 int main(){
     vector<int> nums = {3,1,-2,-5,2,-4};
     int n = nums.size();
 
     vector<int> ans = rearrangeArray(nums, n);
+    vector<int> ans2 = rearrangeArrayOptimized(nums, n);
 
-    for(int val : ans){
+    for(int val : ans2){
         cout<<val<<", ";
     }
     cout<<endl;
