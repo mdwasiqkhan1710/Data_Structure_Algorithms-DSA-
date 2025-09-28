@@ -51,14 +51,35 @@ vector<int> sortColors2(vector<int>& nums, int n){
     return ans;
 }
 
+//Optimized Approach
+vector<int> sortColors3(vector<int>& nums, int n) {
+        int low=0, high=n-1, mid=0;
+
+        while(mid<=high){
+            if(nums[mid]==0){
+                swap(nums[low], nums[mid]);
+                mid++;
+                low++;
+            }else if(nums[mid]==1){
+                mid++;
+            }else{
+                swap(nums[high], nums[mid]);
+                high--;
+            }
+        }
+
+        return nums;
+}
+
 int main(){
     vector<int> nums = {2,0,1,1,0,2};
     int n = nums.size();
 
     vector<int> ans = sortColors(nums, n);
     vector<int> ans2 = sortColors2(nums, n);
+    vector<int> ans3 = sortColors3(nums, n);
 
-    for(int val: ans2){
+    for(int val: ans3){
         cout<<val<<", ";
     }
     cout<<endl;
